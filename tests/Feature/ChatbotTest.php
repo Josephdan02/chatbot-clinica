@@ -416,7 +416,7 @@ $this->assertNull(
         $this->assertSame($expectedDate, $conversation->getContextValue('slots.date'));
         $this->assertSame('appointment_time', $conversation->getContextValue('awaiting'));
     }
-
+     
     public function test_weekday_date_with_appointment_and_service_is_saved_and_continues_to_time(): void
     {
         $response = $this->postJson('/api/chat', [
@@ -430,7 +430,7 @@ $this->assertNull(
         $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}$/', $conversation->getContextValue('slots.date'));
         $this->assertSame('appointment_time', $conversation->getContextValue('awaiting'));
     }
-
+    
     public function test_appointment_message_with_service_date_and_time_is_completed(): void
     {
         $response = $this->postJson('/api/chat', [
